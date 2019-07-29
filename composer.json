@@ -1,0 +1,27 @@
+{
+    "name": "vaahcms/orders",
+    "description": "description",
+    "authors": [
+        {
+            "name": "pradeep",
+            "email": "support@vaah.dev"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "VaahCms\\Modules\\Orders\\Providers\\OrdersServiceProvider"
+            ],
+            "aliases": {
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "VaahCms\\Modules\\Orders\\": ""
+        }
+    }
+}
