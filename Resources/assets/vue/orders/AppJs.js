@@ -1,4 +1,7 @@
 
+import ViewMd from "./partials/ListViewMd";
+import ViewSm from "./partials/ListViewSm";
+
 export default {
 
     props: ['urls'],
@@ -9,11 +12,14 @@ export default {
         }
     },
     components:{
+        'view-md': ViewMd,
+        'view-sm': ViewSm
     },
     data()
     {
         let obj = {
             assets: null,
+            view: 'md',
         };
 
         return obj;
@@ -25,9 +31,15 @@ export default {
     },
     mounted() {
         //---------------------------------------------------------------------
+        this.fn();
         //---------------------------------------------------------------------
     },
     methods: {
+        //---------------------------------------------------------------------
+
+        fn: function () {
+            console.log('test-->', this.$route.matched);
+        },
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
@@ -36,3 +48,5 @@ export default {
         //---------------------------------------------------------------------
     }
 }
+
+

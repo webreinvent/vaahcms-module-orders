@@ -16,20 +16,23 @@ export const store = new Vuex.Store({
         urls: {
             base: base_url,
             current: current_url,
-            pages: current_url+'/pages',
-            menus: current_url+'/menus',
+            settings: current_url+'/settings',
         },
-        pages: {
-            assets: null,
+        settings: {
+            url: null,
         },
         menus: {
             assets: null,
         },
+        app_assets: null,
 
     },
     mutations:{
         updateAssets: function (state, payload) {
             state[payload.type].assets = payload;
+        },
+        updateAppAssets: function (state, payload) {
+            state.app_assets = payload;
         }
     },
     actions:{

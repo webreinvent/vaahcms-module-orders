@@ -22,7 +22,8 @@ const routes= [
 
 //----------Orders
 import OrdersApp from "./orders/App";
-import OrdersList from "./orders/List";
+import OrdersCreate from "./orders/Create";
+import OrdersView from "./orders/View";
 
 const routes_orders =     {
     path: '/orders',
@@ -30,8 +31,13 @@ const routes_orders =     {
     props: true,
     children: [
         {
-            path: '/',
-            component: OrdersList,
+            path: 'create',
+            component: OrdersCreate,
+            props: true,
+        },
+        {
+            path: 'view',
+            component: OrdersView,
             props: true,
         },
     ]
@@ -78,6 +84,39 @@ const routes_invoices =     {
 };
 
 routes.push(routes_invoices);
+//----------/Invoices
+
+
+//----------Settings
+import SettingsApp from "./settings/App";
+import SettingsGeneral from "./settings/General";
+import SettingsPaymentGateways from "./settings/PaymentGateways";
+
+const routes_settings =     {
+    path: '/settings',
+    component: SettingsApp,
+    props: true,
+    children: [
+        {
+            path: '/',
+            component: SettingsGeneral,
+            props: true,
+        },
+        {
+            path: 'general',
+            component: SettingsGeneral,
+            props: true,
+        },
+        {
+            path: 'payment_gateways',
+            component: SettingsPaymentGateways,
+            props: true,
+        },
+
+    ]
+};
+
+routes.push(routes_settings);
 //----------/Invoices
 
 export default routes;

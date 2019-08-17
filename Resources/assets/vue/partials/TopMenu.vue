@@ -24,7 +24,9 @@
                     </li>
 
                     <li class="nav-item">
-                        <router-link class="nav-link" :to="{ path: '/orders'}">
+                        <router-link class="nav-link"
+                                     :class="{'active': $route.matched[0].path == '/orders'}"
+                                     :to="{ path: '/orders'}">
                             Orders
                         </router-link>
                     </li>
@@ -41,6 +43,13 @@
                         </router-link>
                     </li>
 
+                    <li class="nav-item">
+                        <router-link class="nav-link"
+                                     :class="{'active': $route.matched[0].path == '/settings'}"
+                                     :to="{ path: '/settings/general'}" exact>
+                            Settings
+                        </router-link>
+                    </li>
 
 
                 </ul>

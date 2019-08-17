@@ -1,7 +1,7 @@
 @extends("vaahcms::admin.default.layouts.app")
 
 @section('vaahcms_extend_admin_css')
-
+    <link href="{{vh_module_assets_url("Orders", "assets/css/style.css")}}" rel="stylesheet" media="screen">
 @endsection
 
 
@@ -14,9 +14,9 @@
     <div id="app">
 
         <top-menu></top-menu>
-        <div class="content-body">
-            <router-view></router-view>
-        </div>
+
+         <router-view></router-view>
+
 
     </div>
 

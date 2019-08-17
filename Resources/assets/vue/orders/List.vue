@@ -3,7 +3,7 @@
 
 
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm mg-b-10">
                 <div class="d-sm-flex align-items-center justify-content-between">
                     <div>
                         <h4 class="mg-b-0 tx-spacing--1">Orders</h4>

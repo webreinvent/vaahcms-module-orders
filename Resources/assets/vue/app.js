@@ -6,6 +6,7 @@ import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import Vuex from 'vuex'
 import moment from 'moment'
+
 import VaahCms from 'vaahcms-vue-helpers';
 //---------/Package imports
 
@@ -19,6 +20,7 @@ Vue.prototype.moment = moment;
 Vue.use(VueResource);
 Vue.use(VueRouter);
 Vue.use(Vuex);
+Vue.use(require('vue-faker'));
 Vue.use(VaahCms);
 //---------/Helpers
 
@@ -26,16 +28,6 @@ Vue.use(VaahCms);
 import TopMenu from './partials/TopMenu';
 //---------/Import Partials
 
-//---------Variables
-var base_url = $('base').attr('href');
-var current_url = $('#current_url').attr('content');
-var debug = $('#debug').attr('content');
-//---------/Variables
-
-let urls = {
-    base: base_url,
-    current: current_url,
-};
 
 //---------Store
 import {store} from './app-store';
@@ -60,10 +52,42 @@ const app = new Vue({
     },
     store: store,
     router,
+    computed:{
+        ajax_url(){
+            let ajax_url = this.$store.state.urls.current;
+            return ajax_url;
+        }
+    },
     data: {
+
     },
     mounted() {
+        //--------------------------------------
+        this.getAppAssets();
+        //--------------------------------------
+        this.$root.$on('getAppAssetsReloadEvent', () => {
+            this.getAppAssets();
+        });
+        //--------------------------------------
+        //--------------------------------------
+        //--------------------------------------
     },
     methods:{
+
+        getAppAssets: function () {
+            var url = this.ajax_url+"/assets";
+            var params = {};
+            this.$vaahcms.ajax(url, params, this.getAppAssetsAfter);
+        },
+        //---------------------------------------------------------------------
+        getAppAssetsAfter: function (data) {
+
+            console.log('app_assets-->',data);
+
+            this.$store.commit('updateAppAssets', data);
+
+            this.$vaahcms.stopNprogress();
+        },
+
     }
 });

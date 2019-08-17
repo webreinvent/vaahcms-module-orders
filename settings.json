@@ -3,10 +3,10 @@
     "title": "Order Management for VaahCms",
     "slug": "orders",
     "thumbnail": "https://placehold.jp/300x160.png",
-    "excerpt": "description",
-    "description": "description",
+    "excerpt": "Order Management for VaahCms",
+    "description": "Order Management for VaahCms",
     "github_url": "https://github.com/webreinvent/vaahcms",
-    "author_name": "orders",
+    "author_name": "Pradeep",
     "author_website": "https://vaah.dev",
     "version": "v0.0.1",
     "is_sample_data_available": false,
@@ -14,5 +14,17 @@
     "providers": [
         "\\VaahCms\\Modules\\Orders\\Providers\\OrdersServiceProvider"
     ],
-    "aside-menu-order": null
+    "aside-menu-order": null,
+    "payment_gateways": [
+        {
+            "name": "PayPal",
+            "slug": "paypal",
+            "enabled": 0,
+            "paypal_client_id": "",
+            "paypal_client_secrete": "",
+            "paypal_mode": ""
+        }
+    ],
+    "payment_success_url": "/order/payment/success",
+    "payment_failure_url": "/order/payment/failed"
 }
